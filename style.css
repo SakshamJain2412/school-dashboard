@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    display: flex;
+    background: #f0f2f5;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #1a1a2e;
+    color: white;
+    padding: 30px 20px;
+    position: fixed;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #7c73e6;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.sidebar ul li:hover {
+    background: #7c73e6;
+}
+
+.sidebar ul li.active {
+    background: #7c73e6;
+}
+
+.main {
+    margin-left: 250px;
+    padding: 30px;
+    width: 100%;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 28px;
+    color: #1a1a2e;
+}
+
+.header p {
+    color: #888;
+    margin-top: 4px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.card .number {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+.table-section {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-header h2 {
+    color: #1a1a2e;
+    font-size: 18px;
+}
+
+.table-header input {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    width: 220px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 12px;
+    font-size: 13px;
+    color: #888;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+td {
+    padding: 14px 12px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge.green {
+    background: #e6f4ea;
+    color: #2d7a3a;
+}
+
+.badge.red {
+    background: #fdecea;
+    color: #c0392b;
+}
+
+.badge.yellow {
+    background: #fef9e7;
+    color: #b7950b;
+}
+.add-btn {
+    background: #7c73e6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.add-btn:hover {
+    background: #5a52d5;
+}
+
+.add-form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.add-form input {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    flex: 1;
+}
+
+.submit-btn {
+    background: #2d7a3a;
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.submit-btn:hover {
+    background: #1e5c2a;
+}
+.activity-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 14px;
+    color: #555;
+}
+
+.toggle-btn {
+    background: #7c73e6;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.toggle-btn:hover {
+    background: #5a52d5;
+}
