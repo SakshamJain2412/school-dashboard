@@ -14,6 +14,7 @@
         <li onclick="showSection('students', this)">👨‍🎓 Students</li>
         <li onclick="showSection('attendance', this)">📋 Attendance</li>
         <li onclick="showSection('results', this)">📝 Results</li>
+        <li onclick="showSection('attendance-ai', this)">🤖 AI Attendance</li>
     </ul>
 </div>
 
@@ -185,7 +186,65 @@
             </table>
         </div>
     </div>
+    <!-- AI ATTENDANCE SECTION -->
+<div id="attendance-ai" class="section" style="display:none">
+    <div class="cards">
+        <div class="card">
+            <h3>Today's Present</h3>
+            <p class="number" style="color:#2d7a3a" id="ai-present">0</p>
+        </div>
+        <div class="card">
+            <h3>Today's Absent</h3>
+            <p class="number" style="color:#c0392b" id="ai-absent">524</p>
+        </div>
+        <div class="card">
+            <h3>Accuracy Rate</h3>
+            <p class="number" style="color:#7c73e6">99.2%</p>
+        </div>
+    </div>
 
+    <div class="table-section" style="margin-top:24px">
+        <div class="table-header">
+            <h2>🤖 AI Attendance Scanner</h2>
+            <span style="font-size:13px;color:#888">Face + Voice Fusion System</span>
+        </div>
+
+        <div style="display:flex;gap:24px;margin-top:16px">
+            <!-- Mock Camera -->
+            <div style="flex:1;background:#1a1a2e;border-radius:12px;padding:20px;text-align:center">
+                <div id="camera-view" style="background:#000;border-radius:8px;height:200px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;border:2px solid #7c73e6">
+                    <div style="text-align:center">
+                        <div style="font-size:48px">📷</div>
+                        <p style="color:#7c73e6;margin-top:8px">Camera Feed</p>
+                        <p style="color:#555;font-size:12px">Click Start to activate</p>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="startScan()" id="scan-btn">▶ Start AI Scan</button>
+            </div>
+
+            <!-- Status Panel -->
+            <div style="flex:1">
+                <div style="background:#f8f9ff;border-radius:12px;padding:20px;margin-bottom:16px">
+                    <h3 style="margin-bottom:12px;color:#1a1a2e">System Status</h3>
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+                        <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
+                        <span style="font-size:14px">Face Recognition — Active</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+                        <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
+                        <span style="font-size:14px">Voice Recognition — Active</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+                        <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
+                        <span style="font-size:14px">Anti-Spoofing — Active</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px">
+                        <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
+                        <span style="font-size:14px">Environment Adaptive — Active</span>
+                    </div>
+                </div>
+
+                <div id="scan-result" style="background:#f8f9ff;border-radius:12px;padding:20px">
     <!-- RESULTS SECTION -->
     <div id="results" class="section" style="display:none">
         <div class="table-section">
