@@ -8,311 +8,241 @@
 </head>
 <body>
     <div class="sidebar">
-    <h2>🎓 EduDash</h2>
-    <ul>
-        <li class="active" onclick="showSection('dashboard', this)">📊 Dashboard</li>
-        <li onclick="showSection('students', this)">👨‍🎓 Students</li>
-        <li onclick="showSection('attendance', this)">📋 Attendance</li>
-        <li onclick="showSection('results', this)">📝 Results</li>
-        <li onclick="showSection('attendance-ai', this)">🤖 AI Attendance</li>
-    </ul>
-</div>
-
-<div class="main">
-    <div class="header">
-        <h1 id="pageTitle">Welcome, Admin 👋</h1>
-        <p id="pageDate"></p>
+        <h2>🎓 EduDash</h2>
+        <ul>
+            <li class="active" onclick="showSection('dashboard', this)">📊 Dashboard</li>
+            <li onclick="showSection('students', this)">👨‍🎓 Students</li>
+            <li onclick="showSection('attendance', this)">📋 Attendance</li>
+            <li onclick="showSection('results', this)">📝 Results</li>
+            <li onclick="showSection('attendance-ai', this)">🤖 AI Attendance</li>
+        </ul>
     </div>
 
-    <!-- DASHBOARD SECTION -->
-    <div id="dashboard" class="section">
-        <div class="cards">
-            <div class="card">
-                <h3>Total Students</h3>
-                <p class="number">524</p>
-            </div>
-            <div class="card">
-                <h3>Present Today</h3>
-                <p class="number">468</p>
-            </div>
-            <div class="card">
-                <h3>Classes</h3>
-                <p class="number">12</p>
-            </div>
-            <div class="card">
-                <h3>Teachers</h3>
-                <p class="number">38</p>
-            </div>
+    <div class="main">
+        <div class="header">
+            <h1 id="pageTitle">Welcome, Admin 👋</h1>
+            <p id="pageDate"></p>
         </div>
 
-        <div class="table-section" style="margin-top:24px">
-            <h2 style="margin-bottom:16px">Recent Activity</h2>
-            <div class="activity">
-                <div class="activity-item">📌 Rahul Sharma marked present</div>
-                <div class="activity-item">📌 New student Priya added to 11th B</div>
-                <div class="activity-item">📌 Results uploaded for 10th A</div>
-                <div class="activity-item">📌 Attendance report generated</div>
-                <div class="activity-item">📌 Fee reminder sent to 12 students</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- STUDENTS SECTION -->
-    <div id="students" class="section" style="display:none">
-        <div class="table-section">
-            <div class="table-header">
-                <h2>All Students</h2>
-                <div style="display:flex;gap:10px">
-                    <input type="text" id="searchInput" placeholder="🔍 Search student...">
-                    <button class="add-btn" onclick="toggleForm()">+ Add Student</button>
+        <!-- DASHBOARD SECTION -->
+        <div id="dashboard" class="section">
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Students</h3>
+                    <p class="number">524</p>
+                </div>
+                <div class="card">
+                    <h3>Present Today</h3>
+                    <p class="number">468</p>
+                </div>
+                <div class="card">
+                    <h3>Classes</h3>
+                    <p class="number">12</p>
+                </div>
+                <div class="card">
+                    <h3>Teachers</h3>
+                    <p class="number">38</p>
                 </div>
             </div>
-            <div class="add-form" id="addForm" style="display:none">
-                <input type="text" id="newName" placeholder="Student Name">
-                <input type="text" id="newClass" placeholder="Class (eg: 10th A)">
-                <input type="number" id="newAttendance" placeholder="Attendance %">
-                <button class="submit-btn" onclick="addStudent()">Add</button>
+            <div class="table-section" style="margin-top:24px">
+                <h2 style="margin-bottom:16px">Recent Activity</h2>
+                <div class="activity">
+                    <div class="activity-item">📌 Rahul Sharma marked present</div>
+                    <div class="activity-item">📌 New student Priya added to 11th B</div>
+                    <div class="activity-item">📌 Results uploaded for 10th A</div>
+                    <div class="activity-item">📌 Attendance report generated</div>
+                    <div class="activity-item">📌 Fee reminder sent to 12 students</div>
+                </div>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Class</th>
-                        <th>Attendance</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="studentTable">
-                    <tr>
-                        <td>001</td>
-                        <td>Rahul Sharma</td>
-                        <td>10th A</td>
-                        <td>92%</td>
-                        <td><span class="badge green">Active</span></td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>Priya Singh</td>
-                        <td>11th B</td>
-                        <td>87%</td>
-                        <td><span class="badge green">Active</span></td>
-                    </tr>
-                    <tr>
-                        <td>003</td>
-                        <td>Amit Kumar</td>
-                        <td>9th C</td>
-                        <td>65%</td>
-                        <td><span class="badge red">At Risk</span></td>
-                    </tr>
-                    <tr>
-                        <td>004</td>
-                        <td>Sneha Patel</td>
-                        <td>12th A</td>
-                        <td>95%</td>
-                        <td><span class="badge green">Active</span></td>
-                    </tr>
-                    <tr>
-                        <td>005</td>
-                        <td>Rohan Verma</td>
-                        <td>10th B</td>
-                        <td>78%</td>
-                        <td><span class="badge yellow">Average</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- ATTENDANCE SECTION -->
-    <div id="attendance" class="section" style="display:none">
-        <div class="cards">
-            <div class="card">
-                <h3>Present Today</h3>
-                <p class="number" style="color:#2d7a3a">468</p>
-            </div>
-            <div class="card">
-                <h3>Absent Today</h3>
-                <p class="number" style="color:#c0392b">56</p>
-            </div>
-            <div class="card">
-                <h3>Attendance Rate</h3>
-                <p class="number" style="color:#7c73e6">89%</p>
-            </div>
-        </div>
-        <div class="table-section" style="margin-top:24px">
-            <h2 style="margin-bottom:16px">Mark Attendance</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Class</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="attendanceTable">
-                    <tr>
-                        <td>Rahul Sharma</td>
-                        <td>10th A</td>
-                        <td><span class="badge green" id="att1">Present</span></td>
-                        <td><button class="toggle-btn" onclick="toggleAttendance('att1')">Toggle</button></td>
-                    </tr>
-                    <tr>
-                        <td>Priya Singh</td>
-                        <td>11th B</td>
-                        <td><span class="badge green" id="att2">Present</span></td>
-                        <td><button class="toggle-btn" onclick="toggleAttendance('att2')">Toggle</button></td>
-                    </tr>
-                    <tr>
-                        <td>Amit Kumar</td>
-                        <td>9th C</td>
-                        <td><span class="badge red" id="att3">Absent</span></td>
-                        <td><button class="toggle-btn" onclick="toggleAttendance('att3')">Toggle</button></td>
-                    </tr>
-                    <tr>
-                        <td>Sneha Patel</td>
-                        <td>12th A</td>
-                        <td><span class="badge green" id="att4">Present</span></td>
-                        <td><button class="toggle-btn" onclick="toggleAttendance('att4')">Toggle</button></td>
-                    </tr>
-                    <tr>
-                        <td>Rohan Verma</td>
-                        <td>10th B</td>
-                        <td><span class="badge red" id="att5">Absent</span></td>
-                        <td><button class="toggle-btn" onclick="toggleAttendance('att5')">Toggle</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!-- AI ATTENDANCE SECTION -->
-<div id="attendance-ai" class="section" style="display:none">
-    <div class="cards">
-        <div class="card">
-            <h3>Today's Present</h3>
-            <p class="number" style="color:#2d7a3a" id="ai-present">0</p>
-        </div>
-        <div class="card">
-            <h3>Today's Absent</h3>
-            <p class="number" style="color:#c0392b" id="ai-absent">524</p>
-        </div>
-        <div class="card">
-            <h3>Accuracy Rate</h3>
-            <p class="number" style="color:#7c73e6">99.2%</p>
-        </div>
-    </div>
-
-    <div class="table-section" style="margin-top:24px">
-        <div class="table-header">
-            <h2>🤖 AI Attendance Scanner</h2>
-            <span style="font-size:13px;color:#888">Face + Voice Fusion System</span>
         </div>
 
-        <div style="display:flex;gap:24px;margin-top:16px">
-            <!-- Mock Camera -->
-            <div style="flex:1;background:#1a1a2e;border-radius:12px;padding:20px;text-align:center">
-                <div id="camera-view" style="background:#000;border-radius:8px;height:200px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;border:2px solid #7c73e6">
-                    <div style="text-align:center">
-                        <div style="font-size:48px">📷</div>
-                        <p style="color:#7c73e6;margin-top:8px">Camera Feed</p>
-                        <p style="color:#555;font-size:12px">Click Start to activate</p>
+        <!-- STUDENTS SECTION -->
+        <div id="students" class="section" style="display:none">
+            <div class="table-section">
+                <div class="table-header">
+                    <h2>All Students</h2>
+                    <div style="display:flex;gap:10px">
+                        <input type="text" id="searchInput" placeholder="🔍 Search student...">
+                        <button class="add-btn" onclick="toggleForm()">+ Add Student</button>
                     </div>
                 </div>
-                <button class="add-btn" onclick="startScan()" id="scan-btn">▶ Start AI Scan</button>
+                <div class="add-form" id="addForm" style="display:none">
+                    <input type="text" id="newName" placeholder="Student Name">
+                    <input type="text" id="newClass" placeholder="Class (eg: 10th A)">
+                    <input type="number" id="newAttendance" placeholder="Attendance %">
+                    <button class="submit-btn" onclick="addStudent()">Add</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Attendance</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTable">
+                        <tr><td>001</td><td>Rahul Sharma</td><td>10th A</td><td>92%</td><td><span class="badge green">Active</span></td></tr>
+                        <tr><td>002</td><td>Priya Singh</td><td>11th B</td><td>87%</td><td><span class="badge green">Active</span></td></tr>
+                        <tr><td>003</td><td>Amit Kumar</td><td>9th C</td><td>65%</td><td><span class="badge red">At Risk</span></td></tr>
+                        <tr><td>004</td><td>Sneha Patel</td><td>12th A</td><td>95%</td><td><span class="badge green">Active</span></td></tr>
+                        <tr><td>005</td><td>Rohan Verma</td><td>10th B</td><td>78%</td><td><span class="badge yellow">Average</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ATTENDANCE SECTION -->
+        <div id="attendance" class="section" style="display:none">
+            <div class="cards">
+                <div class="card">
+                    <h3>Present Today</h3>
+                    <p class="number" style="color:#2d7a3a">468</p>
+                </div>
+                <div class="card">
+                    <h3>Absent Today</h3>
+                    <p class="number" style="color:#c0392b">56</p>
+                </div>
+                <div class="card">
+                    <h3>Attendance Rate</h3>
+                    <p class="number" style="color:#7c73e6">89%</p>
+                </div>
+            </div>
+            <div class="table-section" style="margin-top:24px">
+                <h2 style="margin-bottom:16px">Mark Attendance</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendanceTable">
+                        <tr><td>Rahul Sharma</td><td>10th A</td><td><span class="badge green" id="att1">Present</span></td><td><button class="toggle-btn" onclick="toggleAttendance('att1')">Toggle</button></td></tr>
+                        <tr><td>Priya Singh</td><td>11th B</td><td><span class="badge green" id="att2">Present</span></td><td><button class="toggle-btn" onclick="toggleAttendance('att2')">Toggle</button></td></tr>
+                        <tr><td>Amit Kumar</td><td>9th C</td><td><span class="badge red" id="att3">Absent</span></td><td><button class="toggle-btn" onclick="toggleAttendance('att3')">Toggle</button></td></tr>
+                        <tr><td>Sneha Patel</td><td>12th A</td><td><span class="badge green" id="att4">Present</span></td><td><button class="toggle-btn" onclick="toggleAttendance('att4')">Toggle</button></td></tr>
+                        <tr><td>Rohan Verma</td><td>10th B</td><td><span class="badge red" id="att5">Absent</span></td><td><button class="toggle-btn" onclick="toggleAttendance('att5')">Toggle</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- RESULTS SECTION -->
+        <div id="results" class="section" style="display:none">
+            <div class="table-section">
+                <h2 style="margin-bottom:16px">Student Results</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Maths</th>
+                            <th>Science</th>
+                            <th>English</th>
+                            <th>Total</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Rahul Sharma</td><td>10th A</td><td>88</td><td>92</td><td>85</td><td>265</td><td><span class="badge green">A</span></td></tr>
+                        <tr><td>Priya Singh</td><td>11th B</td><td>76</td><td>81</td><td>79</td><td>236</td><td><span class="badge yellow">B</span></td></tr>
+                        <tr><td>Amit Kumar</td><td>9th C</td><td>55</td><td>60</td><td>58</td><td>173</td><td><span class="badge red">C</span></td></tr>
+                        <tr><td>Sneha Patel</td><td>12th A</td><td>95</td><td>98</td><td>92</td><td>285</td><td><span class="badge green">A+</span></td></tr>
+                        <tr><td>Rohan Verma</td><td>10th B</td><td>70</td><td>74</td><td>68</td><td>212</td><td><span class="badge yellow">B</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- AI ATTENDANCE SECTION -->
+        <div id="attendance-ai" class="section" style="display:none">
+            <div class="cards">
+                <div class="card">
+                    <h3>Today's Present</h3>
+                    <p class="number" style="color:#2d7a3a" id="ai-present">0</p>
+                </div>
+                <div class="card">
+                    <h3>Today's Absent</h3>
+                    <p class="number" style="color:#c0392b" id="ai-absent">524</p>
+                </div>
+                <div class="card">
+                    <h3>Accuracy Rate</h3>
+                    <p class="number" style="color:#7c73e6">99.2%</p>
+                </div>
             </div>
 
-            <!-- Status Panel -->
-            <div style="flex:1">
-                <div style="background:#f8f9ff;border-radius:12px;padding:20px;margin-bottom:16px">
-                    <h3 style="margin-bottom:12px;color:#1a1a2e">System Status</h3>
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-                        <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
-                        <span style="font-size:14px">Face Recognition — Active</span>
+            <div class="table-section" style="margin-top:24px">
+                <div class="table-header">
+                    <h2>🤖 AI Attendance Scanner</h2>
+                    <span style="font-size:13px;color:#888">Face + Voice Fusion System</span>
+                </div>
+
+                <div style="display:flex;gap:24px;margin-top:16px">
+                    <div style="flex:1;background:#1a1a2e;border-radius:12px;padding:20px;text-align:center">
+                        <div id="camera-view" style="background:#000;border-radius:8px;height:200px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;border:2px solid #7c73e6">
+                            <div style="text-align:center">
+                                <div style="font-size:48px">📷</div>
+                                <p style="color:#7c73e6;margin-top:8px">Camera Feed</p>
+                                <p style="color:#555;font-size:12px">Click Start to activate</p>
+                            </div>
+                        </div>
+                        <button class="add-btn" onclick="startScan()" id="scan-btn">▶ Start AI Scan</button>
                     </div>
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-                        <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
-                        <span style="font-size:14px">Voice Recognition — Active</span>
-                    </div>
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-                        <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
-                        <span style="font-size:14px">Anti-Spoofing — Active</span>
-                    </div>
-                    <div style="display:flex;align-items:center;gap:8px">
-                        <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
-                        <span style="font-size:14px">Environment Adaptive — Active</span>
+
+                    <div style="flex:1">
+                        <div style="background:#f8f9ff;border-radius:12px;padding:20px;margin-bottom:16px">
+                            <h3 style="margin-bottom:12px;color:#1a1a2e">System Status</h3>
+                            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+                                <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
+                                <span style="font-size:14px">Face Recognition — Active</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+                                <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
+                                <span style="font-size:14px">Voice Recognition — Active</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+                                <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
+                                <span style="font-size:14px">Anti-Spoofing — Active</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:8px">
+                                <span style="width:10px;height:10px;background:#2d7a3a;border-radius:50%;display:inline-block"></span>
+                                <span style="font-size:14px">Environment Adaptive — Active</span>
+                            </div>
+                        </div>
+
+                        <div id="scan-result" style="background:#f8f9ff;border-radius:12px;padding:20px">
+                            <h3 style="margin-bottom:8px;color:#1a1a2e">Last Scan Result</h3>
+                            <p style="color:#888;font-size:14px">No scan yet — click Start AI Scan</p>
+                        </div>
                     </div>
                 </div>
 
-                <div id="scan-result" style="background:#f8f9ff;border-radius:12px;padding:20px">
-    <!-- RESULTS SECTION -->
-    <div id="results" class="section" style="display:none">
-        <div class="table-section">
-            <h2 style="margin-bottom:16px">Student Results</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Class</th>
-                        <th>Maths</th>
-                        <th>Science</th>
-                        <th>English</th>
-                        <th>Total</th>
-                        <th>Grade</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Rahul Sharma</td>
-                        <td>10th A</td>
-                        <td>88</td>
-                        <td>92</td>
-                        <td>85</td>
-                        <td>265</td>
-                        <td><span class="badge green">A</span></td>
-                    </tr>
-                    <tr>
-                        <td>Priya Singh</td>
-                        <td>11th B</td>
-                        <td>76</td>
-                        <td>81</td>
-                        <td>79</td>
-                        <td>236</td>
-                        <td><span class="badge yellow">B</span></td>
-                    </tr>
-                    <tr>
-                        <td>Amit Kumar</td>
-                        <td>9th C</td>
-                        <td>55</td>
-                        <td>60</td>
-                        <td>58</td>
-                        <td>173</td>
-                        <td><span class="badge red">C</span></td>
-                    </tr>
-                    <tr>
-                        <td>Sneha Patel</td>
-                        <td>12th A</td>
-                        <td>95</td>
-                        <td>98</td>
-                        <td>92</td>
-                        <td>285</td>
-                        <td><span class="badge green">A+</span></td>
-                    </tr>
-                    <tr>
-                        <td>Rohan Verma</td>
-                        <td>10th B</td>
-                        <td>70</td>
-                        <td>74</td>
-                        <td>68</td>
-                        <td>212</td>
-                        <td><span class="badge yellow">B</span></td>
-                    </tr>
-                </tbody>
-            </table>
+                <div style="margin-top:24px">
+                    <h3 style="margin-bottom:12px">Live Attendance Log</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Face Match</th>
+                                <th>Voice Match</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ai-log">
+                            <tr><td colspan="5" style="text-align:center;color:#888">No scans yet</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<script src="script.js"></script>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
